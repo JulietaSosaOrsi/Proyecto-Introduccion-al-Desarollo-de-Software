@@ -1,0 +1,25 @@
+
+<div id="{{ nombre_carrusel }}" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        {% for i in range(cantidad_diapositivas) %}
+            <li data-target="#{{ nombre_carrusel }}" data-slide-to="{{ i }}" class="{% if i == 0 %}active{% endif %}"></li>
+        {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+        {% for imagen in imagenes %}
+            <div class="carousel-item {% if loop.index0 == 0 %}active{% endif %}">
+                <img id="{{ tipo_imagen }}" src="{{ url_for('static', filename=imagen) }}" class="d-block w-100" alt="Slide {{ loop.index }}">
+            </div>
+        {% endfor %}
+    </div>
+    {% if pasadores %}
+    <a class="carousel-control-prev" href="#{{ nombre_carrusel }}" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#{{ nombre_carrusel }}" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    {% endif %}
+</div>

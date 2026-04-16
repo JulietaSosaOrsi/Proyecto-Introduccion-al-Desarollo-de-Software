@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block body %}
+   
+<div id="preguntas_frecuentes">
+   <div id="contenedor_imagen"></div>
+      <div id="contenedor_secundario">
+         <h2>Nuestro objetivo es hacer que su estandía con nosotros sea lo más agradable posible.</h2>
+         <p>
+            Hemos recopilado una lista de algunas de las preguntas más frecuentes acerca de alojarse en 
+            Hotel Artemisa.
+            <br>
+            Si aún no encuentra la respuesta a su consulta, no dude en ponerse en contacto 
+            y estaremos más que dispuestos a ayudarle.
+         </p>
+      </div>
+
+      <hr class="divider">
+
+      <h3 class="titulo_presentacion">Preguntas Frecuentes</h3>
+
+      {% for pregunta_respuesta in faq %}
+         <div class="contenedor_preguntas">
+            <div class="preguntas">
+               <p>{{ pregunta_respuesta.Pregunta }}</p>
+            </div>
+            <div class="respuestas">
+               <p>{{ pregunta_respuesta.Respuesta }}</p>
+            </div>
+         </div>      
+      {% endfor %}
+      
+      <a href="{{ url_for('contacto')}}">
+         <button type="button" class="boton">Hacer otra consulta</button>
+      </a>
+   </div>
+   
+{% endblock %}

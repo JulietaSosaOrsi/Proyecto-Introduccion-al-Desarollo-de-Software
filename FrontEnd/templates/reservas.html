@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block body %}  
+
+<div id="pagina_reservas">
+  <div id="reservas_imagen"></div>
+    
+    <h2 class="titulo_presentacion">Reservas</h2>
+
+    <div id="formulario">
+      <h2 id="form_titulo"> Coloque sus datos para realizar su reserva </h2>
+      <form id="reserveForm" action="{{ url_for('reservas') }}" method="post">
+        <label for="message">Nombre</label>
+        <br>
+        <input type="text" id="nombre" name="nombre" required>
+        <br>
+        <label for="message">Apellido</label>
+        <br>
+        <input type="text" id="apellido" name="apellido" required>
+        <br>
+        <label for="message">Número de DNI</label>
+        <br>
+        <input type="message" id="identificacion" name="identificacion" required>
+        <br>
+        <label for="message">Número de teléfono</label>
+        <br>
+        <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}" required>
+        <br>        
+        <label for="message">Elija una habitación</label>
+        <br>
+        <select name="roomtype" id="roomtype" required>
+          <option value="" disabled selected hidden>Seleccionar</option>
+          <option value="Twin"> Twin </option>
+          <option value="Junior Suite"> Junior Suite </option>
+          <option value="Deluxe Suite"> Deluxe Suite </option>
+          <option value="Executive Suite"> Executive Suite </option>
+        </select>
+        <label for="checkin">¿Desde qué fecha?</label>
+        <br>
+        <input type="date" id="checkin" name="checkin" required>
+        <br>
+        <label for="checkout">¿Hasta qué fecha?</label>
+        <br>
+        <input type="date" id="checkout" name="checkout" required>
+        <br>
+        <label for="message">Cantidad de huéspedes por habitación</label>
+        <br>
+        <select name="persons" id="persons" required>
+          <option value="" disabled selected hidden>Seleccionar</option>   
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <br>
+        <label for="message">Tipo de cama/s</label>
+        <br>
+        <select name="bedtype" id="bedtype" required>
+          <option value="" disabled selected hidden>Seleccionar</option>
+          <option value="2 camas">Camas simples</option>
+          <option value="1 cama">Camas dobles</option>
+        </select>
+        <div id="boton_enviar" ><button type="submit">Enviar</button></div>
+      </form>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='/js/aviso_reservas.js') }}"></script>
+
+{% endblock %}

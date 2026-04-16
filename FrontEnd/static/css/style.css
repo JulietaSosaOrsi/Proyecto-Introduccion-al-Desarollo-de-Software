@@ -1,0 +1,911 @@
+/* General */
+*{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+}
+
+body {
+	background: #fdf2d4;
+    color: #1E1E1E;
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 300;
+}
+
+header, footer{
+    background: #0a4b2b;
+    width: 100%;
+    color: #fdf2d4;
+}
+
+/* Base */
+header{
+    display: flex;
+    justify-content: space-around;
+}
+
+#logo h2, #enlaces{
+    align-self: center;
+    font-family: "Cinzel", serif;
+}
+
+#logo{
+    display: flex;
+}
+
+header img {
+    width: 100px;
+}
+
+#enlaces a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #fdf2d4;
+    padding: 0px 10px;
+}
+
+#enlaces a:hover{
+    color:#8d7140;
+}
+
+/*Contenedores de imagenes generales*/
+#contenedor_imagen,#reservas_imagen,#contacto_imagen{
+    width: 100%;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+
+/*Preguntas Frecuentes*/
+
+#contenedor_imagen{
+    background-image: url("/static/images/PlazaComún.jpg");
+}
+
+#contenedor_secundario, .contenedor_preguntas{
+    width: 70%;
+    margin: auto;
+}
+
+#contenedor_secundario{
+    text-align: center;
+    padding: 20px 0px;
+}
+
+#contenedor_secundario h2{
+    font-weight: 900;
+    color:#8d7140;
+    font-family: "Cinzel", serif;
+    padding: 15px;
+}
+.contenedor_preguntas{
+    padding: 10px;
+}
+
+.preguntas p{
+    font-weight: bold;
+    color:#8d7140;
+    margin-bottom: 1px;
+}
+
+.respuestas p{
+    margin-bottom: 0px;
+}
+
+#preguntas_frecuentes button{
+    margin: 20px auto;
+}
+#preguntas_frecuentes a{
+    margin: 0% 15%;
+}
+
+/*Contacto*/
+
+#contacto_imagen{
+    background-image: url("/static/images/recepcion.jpg");
+}
+
+#contacto_titulo  {
+    font-family: "Cinzel", serif;
+    color:#8d7140;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 900;
+}
+#form_titulo{
+    font-family: "Cinzel", serif;
+    color:#ffffff;
+    text-align: center;
+    font-weight: 900;
+}
+
+#formulario {
+    width: 40%;
+  padding: 30px 50px;
+  background-color:#8d7140;
+  margin: 70px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+#userForm label, #reserveForm label{ 
+    font-size:large;
+    font-family: "Cinzel", serif;
+    color:#ffffff;
+    font-weight: bold;
+}
+
+#userForm input, #userForm textarea, #reserveForm input, #reserveForm select {
+    color:black;
+    position: relative;
+    width: 100%;
+    padding: 5px 10px;
+    background-color:#fdf2d4;
+    opacity:60%;
+    border: 2px solid #678677;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+#boton_enviar button[type="submit"] {
+    width: 30%;
+    background-color: #ffffff;
+    color: #8d7140;
+    font-family:"Cinzel", serif ;
+    cursor: pointer;
+    border-radius: 10px; 
+    padding:15px 15px; 
+    margin: 0px 35%;
+    font-weight: bold;
+}
+    
+.mapa {
+    display: flex;
+    width: 500px; 
+    margin: auto;
+    border: 5px solid white; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.informacion-contacto {
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px; 
+}
+
+.info:hover{
+    color:#fdf2d4;
+    background-color: #678677;
+}
+
+.info{
+    width: fit-content; 
+    font-family:"Cinzel", serif;
+    color: #fdf2d4;
+    background-color:#8d7140; 
+    padding:10px 15px; 
+    text-align: center; 
+    position: relative;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+ /*Reverva*/
+
+#reservas_imagen{
+    background-image: url("/static/images/edificioHotel.jpg");
+}
+
+#pagina_reservas #formulario{
+    margin-top: 0px;
+}
+
+/* Reserva Exitosa */
+.container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 50px auto;
+}
+
+.message {
+    margin-bottom: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    background-color: #8d7140;
+    border-radius: 5px;
+    font-family: "Cinzel", serif;
+}
+
+.button:hover {
+    background-color: #05a542;
+    color: white;
+}
+
+/*Home*/
+
+#carrusel_principal{
+    max-height: 300px;
+    overflow: hidden;
+}
+
+#imagenes_carrusel_principal{
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+}
+
+#carrusel_habitaciones,#carrusel_galeria {
+    max-height: auto;
+    max-width: 600px;
+    margin:auto;
+    margin-top: 20px; 
+}
+
+#imagenes_carrusel_habitaciones {
+    margin-right: 50px;
+}
+
+#carrusel_galeria {
+    overflow: hidden;
+}
+
+#imagenes_carrusel_galeria,#imagenes_carrusel_habitaciones {
+    object-fit: cover;
+    height: 400px;
+    width: 600px;
+}
+
+#bienvenida_presentacion {
+    font-family: "Cinzel", serif;
+    color:#8d7140;
+    text-align: center;
+    margin-top: 50px;
+    font-weight: 900;
+}
+
+.titulo_presentacion {
+    font-family: "Cinzel", serif;
+    color:#8d7140;
+    margin-top: 30px;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#presentacion_hotel { 
+    padding: 0px;
+    margin: 80px;
+    border: 0px;
+    text-align: justify;
+}
+
+.divider, #divider_bienvenida{
+    width: auto;
+    margin: 0px auto;
+    border: 0; 
+    border-top: 2px solid #8d7140;
+}
+ #divider_bienvenida{
+    width: 25%;  
+}
+
+#servicios_home, #habitaciones_home{ 
+    text-align: center;
+}
+
+.contenido_servicios{ 
+    padding-top: 80;
+    display: flex; 
+    align-items: center;
+}
+
+#contenido_habitaciones_home{ 
+    display: flex;
+}
+
+.imagen_servicio_home_derecha, .imagen_servicio_home_izquierda{
+    border-radius: 100%;
+    width: 600px; 
+    height: auto; 
+}
+
+.imagen_servicio_home_izquierda { 
+    padding-left: 80px; 
+    padding-right: 50px;
+}
+
+.imagen_servicio_home_derecha,.texto_complementario_derecha { 
+    padding-left: 50px; 
+    padding-right: 80px;
+}
+
+.texto_complementario_derecha{ 
+    padding-top: 20px;
+    text-align: justify;
+}
+
+.texto_complementario_izquierda { 
+    padding-top: 20px;
+    padding-left: 80px; 
+    padding-right: 50px;
+    text-align: justify;
+}
+#texto_habitaciones_home{
+    margin: auto;
+    width: 600px;
+    text-align: justify;
+}
+.boton { 
+    padding: 10px;
+    text-align: center;
+    background-color: #0a4b2b;
+    color: #ffffff;
+    font-family: "Cinzel", serif;
+    font-size: medium;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#boton_resenas { 
+    padding: 10px;
+    background-color: #ffffff;
+    color: #8d7140;
+    font-family: "Cinzel", serif;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 40%;
+    margin: 0px 30%;
+}
+
+button:hover, #boton_resenas:hover,#boton_enviar button[type="submit"]:hover,#boton_error:hover{
+    background-color: #05a542; 
+    color: #ffffff;
+}
+
+.star-rating {
+    direction: rtl;
+    padding: 5px;
+    text-align: center;
+}
+
+.star-rating input[type=radio], .star-rating-template input[type=radio]{
+    display: none;
+}
+
+.star-rating label, .star-rating-template label{
+    color: #bbb;
+    font-size: 30px;
+    padding: 0 0px;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-bottom: 0px;
+}
+
+.star-rating input[type=radio]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+    color: #f2b600;
+}
+
+#formulario_resena{
+    width: 450px;
+    height: auto;
+    background-color: #8d7140;
+    padding: 15px 25px;
+    color: #ffffff;
+    margin: auto;
+}
+
+#formulario_resena label{
+    margin-bottom: 0px;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+}
+
+#formulario_resena form label{
+    margin-top: 15px;
+}
+
+#formulario_resena input, textarea{
+    width: 400px;
+}
+
+#nav_secundario {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10%;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+    font-size: large;
+    color:#8d7140;
+}
+#nav_valoraciones{
+    display: flex;
+    align-items: center;
+}
+
+#nav_valoraciones p{
+    margin-bottom:0px;
+}
+
+#valoracion_promedio{
+    margin-left: 20px;
+    margin-right: 7px;
+}
+
+#valoracion_total{
+    font-size: small;
+}
+#separador{
+    margin: 0px 15px;
+}
+
+#nav_secundario button{
+    margin: 0px;
+}
+
+#nav_secundario a{
+    font-family: "Noto Sans", sans-serif;
+    font-weight: 400;
+    padding: 0px 20px;
+    font-size: medium;
+}
+
+.hidden {
+    display: none;
+}
+
+.content {
+    margin: 20px;
+}
+
+#open-modal {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.modal{
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+}
+    
+#modal_formulario{
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+#modal .modal-content {
+    background: #fdf2d4;
+    margin: auto;
+    padding: 0;
+    width: 60%;
+    border: 1px solid #888;
+    max-height: 80vh; 
+    overflow: auto;
+}
+
+.modal-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#modal .modal-header h2 {
+    margin: 0;
+}
+.modal-header{
+    background-color:#8d7140;
+}
+
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+#modal .modal-body {
+    padding: 20px;
+}
+
+
+#titulo_ventana_modal{
+    padding-top: 5px;
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    font-size:large;
+    color:#fdf2d4;
+}
+
+#disparador_modal,#disparador_formulario{
+    cursor: pointer;
+    text-decoration: underline;
+    font-size:medium;
+}
+
+#disparador_modal:hover,#disparador_formulario:hover{
+    font-weight: bold;
+    color: black;
+}
+.valoracion_resena{
+   justify-content: space-between;
+}
+
+.bloque_resena {
+    width: 100%; 
+    text-align: start; 
+    display: flex;
+    align-items: center; 
+    padding: 2% 5%;
+    color:#8d7140;
+}
+
+.contenedor_general_datos{
+    width:50%;
+}
+.contenedor_nombre{
+    width: 40%; 
+}
+.contenedor_titulo_resena{
+    font-family: "Cinzel", serif;
+    font-weight: 700;
+    font-size:large;
+}
+form input, form textarea{
+    border-radius: 20px;
+    border: 2px solid #678677;
+    background-color: #fdf2d4;
+}
+/*Error*/
+
+#boton_error{
+    width: 20%;
+    margin:50px 40%;
+    padding: 10px;
+    text-align: center;
+    background-color: #0a4b2b;
+    color: #ffffff;
+    font-family: "Cinzel", serif;
+    border-radius: 10px;
+    font-weight: 600;
+}
+/* Habitaciones */
+
+.portada-habitaciones{
+    height: 300px;
+    background-image: url('/static/images/portadaHabitaciones.jpg');
+    background-size: 100%;
+    background-position: center;
+}
+
+.presentacion-habitaciones{
+    text-align: center;
+    background-color: #fffcf5;
+    box-shadow: 1px 10px 13px 0px #ae8b4f3f;
+    
+}
+
+.contenido-presentacion-h{
+    padding: 60px;
+    margin: auto;
+}
+
+.contenido-presentacion-h h2, .contenido-presentacion-h h3{
+    margin-bottom: 17px;
+    color: #8d7140;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+}
+
+.contenido-presentacion-h h2{
+    font-size: 40px;
+}
+
+.contenido-presentacion-h h3{
+    font-size: 22px;
+}
+
+.contenido-presentacion-h p{
+    font-size: 16px;
+    margin-bottom: 17px;
+}
+
+.linea-separacion{
+    margin: 0px auto 40px;
+    width: 100%;
+    height: 2px;
+    background-color: #ae8b4f;
+}
+
+.habitaciones{
+    margin: 0 6%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.habitacion{
+    width: 43%;
+    border-radius: 0 0 10px 10px;
+    background-color: #ffffff;
+    margin: 0 30px 30px;
+    box-shadow: 1px 4px 12px 0px #0000008f;
+    max-width: 740px;
+    height: max-content;
+}
+
+.descripcion-habitacion{
+    padding: 10px;
+    text-align: center;
+}
+
+.descripcion-habitacion h2{
+    margin: 10px;
+    color: #8d7140;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+}
+
+.descripcion-habitacion p{
+    text-align: center;
+}
+
+.leer-mas{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    border-color: #0a4b2b;
+    background-color: #ffffff;
+    color: #0a4b2b;
+    width: 50%;
+    font-size: 15px;
+    border-radius: 20px;
+    font-family: "Cinzel", serif
+}
+
+.leer-mas:hover{
+    background-color: #0a4b2b;
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.bloque-informacion-h{
+    width: 100vw;
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+    transition: opacity 0.2s ease, height 0.2s ease;
+}
+
+.mostrar{
+    opacity: 1;
+    height: auto;
+}
+
+.informacion-h{
+    background-color: #ffffff;
+    padding: 0px;
+    display: flex;
+    box-shadow: 1px 4px 12px 0px #00000040;
+    width: 88vw;
+    height: 90vh;
+    max-height: 800px;
+    max-width: 1200px;
+}
+
+.carrusel-info{
+    flex: 1.5;
+    max-width: 50%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+
+.detalles-info{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    padding: 20px;
+}
+
+.detalles-info h3{
+    color: #8d7140;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+}
+
+.cerrar-info-boton{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+}
+
+.desc-h-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 0;
+}
+
+.desc-h-info p{
+    text-align: justify;
+    margin-bottom: 0;
+    font-size: 90%;
+}
+
+.desc-h-info h2{
+    font-size: 30px;
+    margin-top: 0;
+}
+
+.amenities-h{
+    width: 90%;
+}
+
+.amenities-h ul{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.amenities-h ul li{
+    list-style: none;
+    width: 50%;
+    font-size: 12px;
+}
+
+.reservar-info{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid;
+    border-color: #0a4b2b;
+    background-color: #ffffff;
+    color: #0a4b2b;
+    width: 50%;
+    font-size: 15px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: "Cinzel", serif;
+}
+
+.reservar-info:hover{
+    background-color: #0a4b2b;
+    color: #ffffff;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+/*Servicios*/
+
+#contenedor_imagen_servicios {
+    width: 100%;
+    height: 300px;
+    background-image: url("/static/images/flamingo3.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: top;
+}
+
+#titulo_servicios {
+    position: absolute;
+    color:#fdf2d4;
+    font-family: "Cinzel", serif;
+    left: 10%;
+    top: 55%;
+    font-weight: 900;
+}
+
+#servicios_descripcion {
+    padding: 0px;
+    margin: 80px;
+    border: 0px;
+    text-align: justify;
+}
+
+.nombre_servicio_izquierda,.nombre_servicio_derecha {
+    font-family: "Cinzel", serif;
+    color:#8d7140;
+    font-weight: 900;
+}
+
+.nombre_servicio_derecha {
+    padding-left: 35px;
+    padding-top: 20px;
+    text-align: justify;
+}
+
+#carrusel_servicios_0, #carrusel_servicios_1, #carrusel_servicios_2, #carrusel_servicios_3, #carrusel_servicios_4, #carrusel_servicios_5 {
+    max-height: auto;
+    width: 550px;
+}
+
+#imagenes_carruseles_servicio {
+    object-fit: cover;
+    height: 400px;
+    width: 550px;
+}
+
+.contenedor_servicios {
+    padding-top: 80;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: justify;
+}
+
+.caja_servicio_izquierda {
+    margin: 40px 0px 40px 80px;
+}
+
+.caja_servicio_derecha {
+    margin: 40px 80px 40px 0px;
+}
+
+.texto_servicio_izquierda {
+    padding-top: 20px; 
+    width: 600px;
+    padding-right: 35px;
+}
+
+.texto_servicio_derecha { 
+    padding-top: 20px;
+    width: 600px;
+    padding-left: 35px;
+}
+
+/*Footer*/
+footer{
+    text-align: center;
+    padding: 15px 0px;
+    margin-top: 30px;
+    clear: both;
+}
+footer p{
+    margin-bottom: 0px;
+}

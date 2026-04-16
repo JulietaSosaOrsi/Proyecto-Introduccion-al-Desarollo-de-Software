@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block body %}  
+<div id="pagina_contactos">
+    <div id="contacto_imagen"></div>
+    
+    <h2 id="contacto_titulo">Información de contacto</h2>
+
+    <div id="contenedor_secundario">
+       <p>En nuestra página de contactos, encontrarás toda la información necesaria. No dudes en contactarnos a través de nuestro número de teléfono o enviarnos un correo electrónico. También puedes completar nuestro formulario de contacto en línea para que podamos atender tus necesidades de manera rápida y eficiente.
+        Estamos comprometidos a brindarte el mejor servicio posible.<br>
+        ¡Esperamos poder darte la bienvenida pronto!  
+        </p>
+    </div>
+    
+    <hr class="divider">
+
+    <div class="informacion-contacto"> 
+        <p class="info">Email: ArtemisaHotel@hotmail.com</p>
+        <p class="info"> Teléfono: +1123469356 </p>
+        <p class="info"> Ubicación: Av. Atlântica, 1702 - Copacabana </p>
+    </div>
+    
+    <div class="mapa">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.535984867859!2d-43.181907225185654!3d-22.9673099792126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bd5541a6b553d%3A0x9210c05d34528a86!2sAv.%20Atl%C3%A2ntica%2C%201702%20-%20Copacabana%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022021-001%2C%20Brasil!5e0!3m2!1ses!2sar!4v1717355565217!5m2!1ses!2sar" width="500" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+
+    <div id="formulario">
+        <h2 id="form_titulo">Deje su consulta</h2>
+        <form id="userForm" action="{{ url_for('contacto')}}" method="POST">
+            <label for="name">Nombre y Apellido:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br>
+            
+            <label for="contact">Número de teléfono:</label><br>
+            <input type="tel" id="contact" name="contact" required pattern="[0-9]{10}"><br>
+            
+            <label for="message">Consulta:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br>
+            
+            <div id="boton_enviar">
+                <button type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,254 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<template id="star-rating-template">
+    <div class="star-rating-template">
+        <input type="radio" id="estrella_template5" name="satisfaccion_template" value="5"><label
+            for="estrella_template5">★</label>
+        <input type="radio" id="estrella_template4" name="satisfaccion_template" value="4"><label
+            for="estrella_template4">★</label>
+        <input type="radio" id="estrella_template3" name="satisfaccion_template" value="3"><label
+            for="estrella_template3">★</label>
+        <input type="radio" id="estrella_template2" name="satisfaccion_template" value="2"><label
+            for="estrella_template2">★</label>
+        <input type="radio" id="estrella_template1" name="satisfaccion_template" value="1"><label
+            for="estrella_template1">★</label>
+    </div>
+</template>
+
+
+<div id="nav_secundario">
+    <div id="nav_valoraciones">
+        <p>Hotel Artemisa Copacabana</p>
+        <div id="valoracion_promedio"></div>
+        <div id="valoracion_total">{{promedio_satisfaccion}}/5 </div>
+        <p id="separador">•</p>
+        <p id="disparador_modal"> ver {{cantidad_resenas}} reseñas</p>
+        <p id="separador">•</p>
+        <p id="disparador_formulario"> escribir reseña</p>
+    </div>
+
+    <a href="{{ url_for('reservas')}}">
+        <button class="boton">Reservar</button>
+    </a>
+</div>
+
+<div id="modal" class="modal hidden">
+    <div class="modal-content">
+        <header class="modal-header">
+            <h6 id="titulo_ventana_modal">Calificaciones y reseñas</h6>
+            <span id="cerrar_modal" class="close">&times;</span>
+        </header>
+        <div>
+            <ul id="listaResenas">
+                {% for resena in resenas %}
+                <li class="resena">
+                    <div class="contenedor_valoracion">
+                        <p class="calificacion" style="display:none;">{{ resena.satisfaccion }}</p>
+                    </div>
+                    <div class="bloque_resena">
+                        <div class="contenedor_nombre">
+                            <p>{{ resena.nombre }} </p>
+                        </div>
+                        <div class="contenedor_general_datos">
+                            <div class="valoracion_resena"></div>
+                            <div class="contenedor_titulo_resena">
+                                <p>{{ resena.titulo_resena }}</p>
+                            </div>
+                            <div class="contenedor_resena">
+                                <p>{{ resena.resena }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="divider">
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="modal_formulario" class="modal hidden">
+    <div class="modal-content">
+        <header class="modal-header">
+            <h6 id="titulo_ventana_modal">¿Qué opinas de nuestro hotel?</h6>
+            <span id="cerrar_modal_formulario" class="close">&times;</span>
+        </header>
+        <div id="resenas">
+            <div id="formulario_resena">
+                <form action="{{ url_for('home')}}" method="post">
+                    <label for="nombre">Nombre:</label>
+                    </br>
+                    <input type="text" id="nombre" name="nombre" placeholder="  Ingrese su nombre" required>
+                    </br>
+                    <label for="titulo_resena">Ingrese un título para su reseña:</label>
+                    </br>
+                    <input type="text" id="titulo_resena" name="titulo_resena" placeholder="  Ingrese un titulo"
+                        required>
+                    </br>
+                    <label for="contenido">Reseña:</label>
+                    </br>
+                    <textarea id="resena" name="resena" rows="4" cols="50" required
+                        placeholder="  Su reseña sobre Artemisa"></textarea><br><br>
+                    <label> Indique su valoración general de Artemisa:</label>
+                    <div class="star-rating estrellas_fromulario">
+                        <input type="radio" id="estrella5" name="satisfaccion" value="5"><label
+                            for="estrella5">★</label>
+                        <input type="radio" id="estrella4" name="satisfaccion" value="4"><label
+                            for="estrella4">★</label>
+                        <input type="radio" id="estrella3" name="satisfaccion" value="3"><label
+                            for="estrella3">★</label>
+                        <input type="radio" id="estrella2" name="satisfaccion" value="2"><label
+                            for="estrella2">★</label>
+                        <input type="radio" id="estrella1" name="satisfaccion" value="1"><label
+                            for="estrella1">★</label>
+                    </div>
+                    <button type="submit" id="boton_resenas"> Enviar reseña</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+<div>
+    {% with nombre_carrusel='carrusel_principal',
+        imagenes=['images/playa.jpeg', 'images/pileta3.webp', 'images/playa2.jpg',
+        'images/exteriorHotel.jpg'], cantidad_diapositivas=4 , tipo_imagen='imagenes_carrusel_principal',
+        pasadores=false%}
+        {% include 'carrusel.html' %}
+    {% endwith %}
+</div>
+
+<div id="presentacion_hotel">
+    <h6 id="bienvenida_presentacion">Bienvenido al Hotel Artemisa</h6>
+
+    <hr class="divider" id="divider_bienvenida">
+
+    <h1 class="titulo_presentacion">Encuentra pura dicha en nuestro hotel en Copacabana, Brasil</h1>
+    <p>Haga que esta temporada brille con una estancia tropical en nuestro hotel.
+        Con vistas cinematográficas, disfrute de Caipirinhas junto a la piscina con
+        vistas al atardecer y déjese bañar por el sol en la arena dorada de la playa
+        de Copacabana. Nuestro hotel ha sido un ícono frente a la playa brasileña
+        durante casi un siglo, y la sensación de glamour y naturaleza está viva a cada paso.
+        <br><br>
+        Su bienestar es nuestra principal prioridad y esperamos brindarle actividades
+        para que explore de manera segura Copacabana y las playas cercanas Flamingo Beach
+        y Wind Creek. En minutos, el taxi acuático de nuestro hotel lo
+        llevará a nuestra isla privada de 40 acres, donde los flamencos deambulan libremente
+        y le esperan tratamientos relajantes en nuestro Spa. Y, con la gran variedad de restaurantes
+        y bares que sirven de todo, desde cócteles artesanales hasta filetes auténticos, la experiencia
+        gastronómica perfecta nunca está lejos.
+    </p>
+</div>
+
+<hr class="divider">
+
+<div id="servicios_home">
+    <h3 class="titulo_presentacion"> ¿Por qué te encantará Artemisa?</h3>
+    <div class="contenido_servicios">
+        <img class="imagen_servicio_home_izquierda"
+            src="{{ url_for('static', filename='images/pileta1.jpg', _external=True) }}">
+        <p class="texto_complementario_derecha"> Nade, tome el sol, beba algo o descanse en nuestra piscina Garden
+            of
+            the Gods Oasis.
+            Con su bar único, Garden of the Gods te permite elegir tu propia experiencia. Organice su día con
+            alquiler
+            sofás cama por
+            día completo o medio día.
+            <br><br>
+        </p>
+    </div>
+    <div class="contenido_servicios">
+
+        <p class="texto_complementario_izquierda"> Pruebe nuestro delicioso buffet de mariscos o pruebe otras
+            deliciosas
+            opciones para el almuerzo. Únase a nosotros en este restaurante informal para disfrutar del refrigerio
+            perfecto
+            durante su visita. Disfrute de un descanso del sol, la arena y el surf de Copacabana mientras prueba
+            deliciosos
+            refrigerios y comidas ligeras.
+            <br><br>
+        </p>
+        <img class="imagen_servicio_home_derecha"
+            src="{{ url_for('static', filename='images/restaurante2.jpg', _external=True) }}">
+    
+    </div>
+
+    <div class="contenido_servicios">
+        <img class="imagen_servicio_home_izquierda"
+            src="{{ url_for('static', filename='images/restaurante1.jpg', _external=True) }}">
+        <p class="texto_complementario_derecha"> Comience cada día en Copacabana con su bebida de café
+            favorita en nuestra cafetería/pastelería. Servimos una selección completa de cafés y tés,
+            así como una variedad de pasteles recién hechos y otras delicias para llevar. <br><br>
+        </p>
+    </div>
+        
+    <div class="contenido_servicios">
+
+        <p class="texto_complementario_izquierda">Con el servicio de guardería para mascotas puedes salir a explorar
+            la
+            ciudad
+            teniendo la seguridad de que tu amigo peludo estará recibiendo los mejores cuidados en nuestro hotel.
+            También puedes disfrutar con tu mascota en las áreas de juego designadas para su entretenimiento, las
+            mismas
+            se dividen
+            en zona de gatitos y zona de perritos.
+            <br><br>
+        </p>
+        <img class="imagen_servicio_home_derecha"
+            src="{{ url_for('static', filename='images/petCares.jpeg', _external=True) }}">
+    </div>
+    
+    <a href="{{ url_for('servicios')}}">
+        <button type="button" class="boton">Ver Más</button>
+    </a>
+
+    <hr class="divider">
+
+    <div id="habitaciones_home">
+        <h3 class="titulo_presentacion">Habitaciones y suites</h3>
+        <div id="contenido_habitaciones_home">
+            <p id="texto_habitaciones_home">Hotel Artemisa está listo para darle la bienvenida a la
+                comodidad frente al mar. Todas las habitaciones y suites del hotel cuentan con increíbles
+                vistas al océano, al puerto deportivo o a la isla que te dejarán sin aliento. Tenemos la
+                habitación o suite ideal para su escapada a Copacabana. Eche un vistazo a todos nuestros
+                diseños de habitaciones para encontrar una configuración ideal para usted.
+                <br><br>
+            </p>
+            
+            {% with nombre_carrusel='carrusel_habitaciones',
+                imagenes=['images/Ejecutiva1.jpg', 'images/Ejecutiva3.jpg', 'images/SuiteJunior1.jpg',
+                'images/Twin2.jpg'], cantidad_diapositivas=4 , tipo_imagen='imagenes_carrusel_habitaciones', pasadores=True
+            %}
+                {% include 'carrusel.html' %}
+            {% endwith %}
+        </div>
+        <a href="{{ url_for('habitaciones')}}">
+            <button class="boton">Ver Más</button>
+        </a>
+    </div>
+</div>
+
+</br>
+</br>
+
+<hr class="divider">
+<div id="galeria">
+    <h3 class="titulo_presentacion">explora el hotel con nuestra galería</h3>
+
+    {% with nombre_carrusel='carrusel_galeria',
+        imagenes=['images/edificioHotel.jpg', 'images/exteriorHotel2.jpg','images/PlazaComún.jpg',
+        'images/Ejecutiva1.jpg', 'images/Ejecutiva2.jpg','images/Ejecutiva3.jpg','images/SuiteJunior1.jpg',
+        'images/lobby.jpg', 'images/petCare1.jpg','images/petCare2.jpg','images/petCare3.jpg',
+        'images/pileta1.jpg', 'images/pileta2.jpg','images/restaurante2.jpg','images/spa1.jpg',
+        'images/Twin2.jpg'], cantidad_diapositivas=16, tipo_imagen='imagenes_carrusel_galeria', pasadores=True 
+    %}
+        {% include 'carrusel.html' %}
+    {% endwith %}
+
+</div>
+
+<script src="{{ url_for('static', filename='/js/home.js') }}"></script>
+{% endblock %}

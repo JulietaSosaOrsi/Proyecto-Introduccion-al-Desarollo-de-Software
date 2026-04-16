@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block body %}
+
+<div id="contenedor_imagen_servicios">
+
+</div>
+
+<div id="contenedor_secundario">
+    <h2>Nuestro compromiso con su bienestar es evidente en cada rincón de Hotel Artemisa.</h2>
+    <p>
+        Desde nuestras lujosas playas donde disfrutara vistas panorámicas del océano 
+        hasta nuestros espacios de bienestar especialmente diseñados para revitalizar cuerpo y mente, 
+            cada aspecto de su estadía ha sido meticulosamente planificado para ofrecer una experiencia inolvidable. 
+            Diseñado para el disfrute en familia o amigos, el predio cuenta con diversas actividades disponibles
+            a todas horas. Contamos con staff capacitado para garantizar una experiencia de lujo.
+        </p>
+</div>
+
+<hr class="divider">
+
+<h2 class="titulo_presentacion"> Servicios y Amenities</h2>
+
+{% for servicio in servicios %}
+    {% if loop.index0 % 2 == 0 %}
+        <div class="contenedor_servicios">
+            <div class="caja_servicio_izquierda">
+                <h3 class="nombre_servicio_izquierda">{{servicio.nombre_servicio}}</h3>
+                <p class="texto_servicio_izquierda">{{servicio.descripcion_servicio}} 
+                </p>
+            </div>
+            <div class="caja_servicio_derecha">
+                {% with nombre_carrusel='carrusel_servicios_' ~ loop.index0,
+                        imagenes=[], 
+                        cantidad_diapositivas=0, 
+                        tipo_imagen='imagenes_carruseles_servicio', 
+                        pasadores=True 
+                %}
+                    {% for i in range(1, 4) %}
+                        {% set ruta_imagen = 'ruta_imagen' ~ i %}
+                        {% if servicio[ruta_imagen] is not none %}
+                            {% set _ = imagenes.append(servicio[ruta_imagen]) %}
+                        {% endif %}
+                    {% endfor %}
+                    {% set cantidad_diapositivas = imagenes|length %}
+                    {% include 'carrusel.html' %}
+                {% endwith %}
+            </div>
+        </div>
+    {% else %}
+        <div class="contenedor_servicios">
+            <div class="caja_servicio_izquierda ">
+                {% with nombre_carrusel='carrusel_servicios_' ~ loop.index0,
+                        imagenes=[], cantidad_diapositivas=0, 
+                        tipo_imagen='imagenes_carruseles_servicio', 
+                        pasadores=True 
+                %}
+                    {% for i in range(1, 4) %}
+                        {% set ruta_imagen = 'ruta_imagen' ~ i %}
+                        {% if servicio[ruta_imagen] is not none %}
+                            {% set _ = imagenes.append(servicio[ruta_imagen]) %}
+                        {% endif %}
+                    {% endfor %}
+                    {% set cantidad_diapositivas = imagenes|length %}
+                    {% include 'carrusel.html' %}
+                {% endwith %}
+            </div>
+            <div class="caja_servicio_derecha">
+                <h3 class="nombre_servicio_derecha">{{servicio.nombre_servicio}}</h3>
+                <p class="texto_servicio_derecha"> {{servicio.descripcion_servicio}}</p>
+            </div>
+        </div> 
+    {% endif %}
+
+    <hr class="divider">
+
+{% endfor %}
+
+{% endblock %}

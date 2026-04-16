@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block body %}
+
+<section class="portada-habitaciones"></section>
+
+<section class="presentacion-habitaciones">
+    <div class="contenido-presentacion-h">
+        <h2>Suites & Habitaciones</h2>
+        <h3>Una estadía perfecta</h3>
+        <p>El arte de vivir. Descubra diseño, estilo y comodidad en nuestras exclusivas habitaciones y suites con balcón privado e impresionantes vistas de la ciudad y del mar. Encuentra tu suite perfecta.</p>
+    </div>
+</section>
+    
+<div class="linea-separacion"></div>
+    <section class="habitaciones">
+        {% for habitacion in habitaciones %}
+            <article class="habitacion">
+                <div class="carrusel">
+                    {% with 
+                        nombre_carrusel='carrusel_habitacion_' ~ loop.index, 
+                        imagenes=[], 
+                        cantidad_diapositivas=0, 
+                        tipo_imagen='imagenes_carrusel_galeria', 
+                        pasadores=True 
+                    %}
+                        {% for i in range(0, 3) %}
+                            {% set ruta_imagen = 'ruta_imagen' ~ loop.index %}
+                            {% if habitacion[ruta_imagen]  is not none %}
+                                {% set _ = imagenes.append(habitacion[ruta_imagen]) %}
+                            {% endif %}
+                        {% endfor %}
+                        {% set cantidad_diapositivas = imagenes|length %}
+                        {% include 'carrusel.html' %}
+                    {% endwith %}
+                </div>
+
+                <div class="descripcion-habitacion">
+                    <h2>{{ habitacion.nombre }}</h2>
+                    <p class="mini-descripcion"></p>
+                    <button class="leer-mas">LEER MÁS</button>
+                </div>
+
+                <div class="bloque-informacion-h">
+                    <div class="informacion-h">
+                        <div class="carrusel-info">
+                            {% with 
+                                nombre_carrusel='carrusel_habitacion_informacion_' ~ loop.index,
+                                imagenes=[], 
+                                cantidad_diapositivas=0, 
+                                tipo_imagen='imagenes_carrusel_galeria', 
+                                pasadores=True 
+                            %}
+                                {% for i in range(0, 3) %}
+                                    {% set ruta_imagen = 'ruta_imagen' ~ loop.index %}
+                                    {% if habitacion[ruta_imagen]  is not none %}
+                                        {% set _ = imagenes.append(habitacion[ruta_imagen]) %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% set cantidad_diapositivas = imagenes|length %}
+                                {% include 'carrusel.html' %}
+                            {% endwith %}        
+                        </div>
+
+                        <div class="detalles-info">
+                            <button class="cerrar-info-boton">X</button>
+                            <div class="descripcion-habitacion desc-h-info">
+                                <h2>Junior Suite</h2>
+                                <p class="texto-descripcion">{{ habitacion.descripcion }}</p>
+                            </div>
+                        <h3>Hotel amenities</h3>
+                        <div class="amenities-h">
+                            <ul>
+                                {% for amenity in habitacion.amenities %}
+                                    <li>-{{ amenity }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <a class="reservar-info" href="{{url_for('reservas')}}">RESERVAR</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+</section>
+
+<script src="{{ url_for('static', filename='js/funciones.js')}}"></script>
+    
+{% endblock %}
