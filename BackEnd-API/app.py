@@ -12,7 +12,7 @@ app = Flask(__name__)
 CORS(app)
 
 def set_connection():
-    engine = create_engine("mysql+mysqlconnector://root:@localhost/proyecto_messi")
+    engine = create_engine("mysql+mysqlconnector://root:7403@127.0.0.1/proyecto_messi")
     connection = engine.connect()
     return connection
 

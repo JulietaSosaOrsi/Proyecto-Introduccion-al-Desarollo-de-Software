@@ -73,15 +73,18 @@ def contacto():
 @app.route('/preguntas_frecuentes', methods=['GET'])
 def preguntas_frecuentes():
     backend_url = f"{HOST_BACK}/informacion_faq"
+    
+    # 1. Inicializamos la variable antes del try
+    faq = [] 
 
     try:
         response = requests.get(backend_url)
         response.raise_for_status()
         datos_faq = response.json()
-        faq = datos_faq.get('faq')
+        faq = datos_faq.get('faq', []) # get() con lista vacía por defecto
 
     except requests.exceptions.RequestException as e:
-        print(e)
+        print(f"Error al conectar con el backend: {e}")
 
     return render_template('preguntas_frecuentes.html', faq=faq)
 
